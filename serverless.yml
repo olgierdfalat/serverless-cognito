@@ -17,6 +17,11 @@ service: serverless-cognito # NOTE: update this with your service name
 # Check out our docs for more details
 # frameworkVersion: "=X.X.X"
 
+custom:
+  # Our stage is based on what is passed in when running serverless
+  # commands. Or fallsback to what we have set in the provider section.
+  stage: ${opt:stage, self:provider.stage}
+
 provider:
   name: aws
   runtime: nodejs8.10
@@ -64,7 +69,9 @@ functions:
       - http:
           path: cognito/hello
           method: get
-
+resources:
+  # Cognito
+  - ${file(resources/cognito-user-pool.yml)}
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details

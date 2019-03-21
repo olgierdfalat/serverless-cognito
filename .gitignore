@@ -59,3 +59,10 @@ typings/
 
 # next.js build output
 .next
+
+# Serverless directories
+.serverless
+.history
+
+# Ignore environment secrets
+env.yml
