@@ -1,0 +1,13 @@
+iamRoleStatements for Cognito: 
+https://github.com/laardee/serverless-authentication-boilerplate/blob/master/authentication/serverless.yml
+
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+      - cognito-sync:*
+      - cognito-identity:*
+      Resource: arn:aws:cognito-identity:*:*:*
+    - Effect: Allow
+      Action:
+      - cognito-idp:*
+      Resource: arn:aws:cognito-idp:*:*:*

@@ -22,11 +22,27 @@ Serverless Framework and AWS Cognito example
 
 #### Deploy to AWS
 
-    `serverless deploy`
+    serverless deploy
 
 or 
 
-    `sls deploy`
+    sls deploy
+
+After first deployment create **env.yml** file at the project root level and copy the following settings:
+
+```
+# Add the environment variables for the various stages
+
+prod:
+
+default:
+  userPoolClientId: "****************"
+  userPoolId: "****************"
+```
+
+**and re-deploy service with new settings again!**
+
+**Note:** The **userPoolClientId** and **userPoolId** settings are available in AWS Cognito Console.
 
 #### Endpoints
 
