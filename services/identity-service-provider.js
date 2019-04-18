@@ -1,7 +1,7 @@
 const AWS = require('aws-sdk');
 const Promise = require('bluebird');
-const CognitoService = require('./cognito-service');
 const config = require('./config');
+
 
 module.exports = (() => {
   AWS.config.update({region: config.AWS.region});
@@ -13,13 +13,12 @@ module.exports = (() => {
     }
   });
 
-  return {
-    createAwsCognitoIdentityServiceProvider() {
-      return new AWS.CognitoIdentityServiceProvider();
-    },
+  const awsCognitoIdentityServiceProvider = new AWS.CognitoIdentityServiceProvider();
 
-    createCognitoService() {
-      return CognitoService(this.createAwsCognitoIdentityServiceProvider());
+  return {
+    adminCreateUser(params) {
+      console.log(params);
+      return awsCognitoIdentityServiceProvider.adminCreateUser(params).promise();
     }
   }
 })();
