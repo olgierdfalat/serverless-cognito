@@ -1,5 +1,5 @@
 # serverless-cognito
-Serverless Framework and AWS Cognito example
+Serverless Framework and AWS Cognito boilerplate
 
 [Based on]:(https://serverless-stack.com/chapters/configure-cognito-user-pool-in-serverless.html)
 
